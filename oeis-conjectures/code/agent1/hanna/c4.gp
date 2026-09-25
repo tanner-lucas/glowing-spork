@@ -1,0 +1,11 @@
+default(parisizemax, 1000000000);
+M=400;
+F = sum(k=0,9, if(2^k<M, Mod(1,2)*x^(2^k), 0)) + O(x^M);
+r1 = F*subst(F,x,x^3+x*F^3) - subst(F,x,x^4);
+r2 = F*subst(F,x,x^2) - subst(F,x,x^3+x*F^3);
+print("A384270 identity mod 2 holds to O(x^",M,"): ", r1 == O(x^M) || valuation(lift(r1),x) >= M, "   A384830 identity: ", valuation(r2,x));
+U = O(x^M); for(k=0,6, if(3^k<M, U += Mod(1,3)*x^(3^k))); for(i=0,6, for(j=i+1,6, my(e=(3^i+3^j)/2); if(e<M, U += Mod(2,3)*x^e)));
+r3 = subst(U,x,x^2+x*U^2) - U^2;
+print("A384830 mod-3 identity U(x^2+xU^2)=U^2 residual valuation: ", valuation(r3,x));
+print("F:", valuation(r1,x));
+quit;
