@@ -1,0 +1,8 @@
+*.o
+*.out
+lunar-lander/crashfree
+lunar-lander/bfs2
+lunar-lander/bfs3
+lunar-lander/dp3
+lunar-lander/dp3g
+lunar-lander/*.txt.tmp
