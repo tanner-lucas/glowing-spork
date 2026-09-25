@@ -134,6 +134,10 @@ $\min(i+k,0)$ shows that non-positive walks realise every sum in $[\Sigma L,\,-t
 $j\ge t_{|i|-1}$, then $-j$ lies in this range at $n=T(i,j)$, so an optimal play exists whose altitude
 decreases monotonically to 0. If $j<t_{|i|-1}$, even maximal braking hits the ground first. $\square$
 
+*Machine check* (`crashfree.c`). I ran BFS with every intermediate altitude required to be $\ge0$ over
+$|i|\le60$, $0\le j\le1500$. It gives the same $T$ at all 146,396 soft-landable starts, and it finds no
+landing at any of the 35,225 starts that Theorem 4 says are impossible.
+
 ## 6. The game on triples (new sequences)
 
 A position is now $(a,v,h)$: acceleration, velocity, altitude. A move picks $\delta\in\{-1,0,1\}$ and
